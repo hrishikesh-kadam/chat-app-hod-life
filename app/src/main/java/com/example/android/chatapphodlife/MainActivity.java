@@ -102,6 +102,8 @@ public class MainActivity extends AppCompatActivity implements CustomEditText.on
                 ChatEntry.CONTENT_URI, null, null, null, null);
         chatAdapter.swapCursor(cursor);
         chatAdapter.notifyDataSetChanged();
+
+        recyclerView.scrollToPosition(0);
     }
 
     @Override
