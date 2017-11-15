@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/textViewSenderMessage"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -28,8 +28,12 @@
         android:paddingStart="8dp"
         android:paddingTop="8dp"
         android:textSize="16sp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toRightOf="@id/guideline"
         app:layout_constraintRight_toRightOf="parent"
-        tools:text="Absdj dskdjskdjs sdskdjksdj sdjskjksd d" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Absdj dskdjskdjs dd dsds dsd sds dsdsdsd sd s sd" />
 
 </android.support.constraint.ConstraintLayout>
