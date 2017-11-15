@@ -7,6 +7,8 @@
     android:background="@color/background"
     tools:context="com.example.android.chatapphodlife.MainActivity">
 
+    <include layout="@layout/sender_bubble"/>
+
     <EditText
         android:id="@+id/editTextMessage"
         android:layout_width="0dp"
