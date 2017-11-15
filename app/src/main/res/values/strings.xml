@@ -3,4 +3,17 @@
 
     <string name="delete_all">Delete all messages</string>
     <string name="all_messages_deleted">All messages deleted</string>
+    <string name="empty_chat_text">Send some message to get random quotes back</string>
+
+    <string name="quotes_1">“Don\'t cry because it\'s over, smile because it happened.” - Dr. Seuss</string>
+    <string name="quotes_2">“Be yourself; everyone else is already taken.” - Oscar Wilde</string>
+    <string name="quotes_3">“Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.” - Albert Einstein</string>
+    <string name="quotes_4">“Be the change that you wish to see in the world.” - Mahatma Gandhi</string>
+    <string name="quotes_5">“Always forgive your enemies; nothing annoys them so much.” - Oscar Wilde</string>
+    <string name="quotes_6">“Live as if you were to die tomorrow. Learn as if you were to live forever.” - Mahatma Gandhi</string>
+    <string name="quotes_7">“I have not failed. I\'ve just found 10,000 ways that won\'t work.” - Thomas A. Edison</string>
+    <string name="quotes_8">“Love all, trust a few, do wrong to none.” - William Shakespeare</string>
+    <string name="quotes_9">“That which does not kill us makes us stronger.” - Friedrich Nietzsche</string>
+    <string name="quotes_10">“It is never too late to be what you might have been.” - George Eliot</string>
+
 </resources>

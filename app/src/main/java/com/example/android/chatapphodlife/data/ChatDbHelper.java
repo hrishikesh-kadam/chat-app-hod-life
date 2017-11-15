@@ -24,7 +24,7 @@ public class ChatDbHelper extends SQLiteOpenHelper {
 
         final String CREATE_TABLE = "CREATE TABLE " + ChatEntry.TABLE_NAME + " (" +
                 ChatEntry._ID + " INTEGER PRIMARY KEY, " +
-                ChatEntry.COLUMN_RECEIPIENT + " TEXT, " +
+                ChatEntry.COLUMN_RECIPIENT + " TEXT, " +
                 ChatEntry.COLUMN_MESSAGE + " TEXT);";
 
         db.execSQL(CREATE_TABLE);

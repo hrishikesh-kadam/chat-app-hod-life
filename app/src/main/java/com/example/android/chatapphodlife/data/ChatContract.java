@@ -21,10 +21,10 @@ public class ChatContract {
 
         public static final String TABLE_NAME = "chat";
 
-        public static final String COLUMN_RECEIPIENT = "receipient";
+        public static final String COLUMN_RECIPIENT = "recipient";
         public static final String COLUMN_MESSAGE = "message";
 
-        public static final String RECEIPIENT_SENDER = "sender";
-        public static final String RECEIPIENT_RECEIVER = "receiver";
+        public static final String RECIPIENT_SENDER = "sender";
+        public static final String RECIPIENT_RECEIVER = "receiver";
     }
 }

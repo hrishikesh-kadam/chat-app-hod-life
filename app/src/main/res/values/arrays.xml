@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="quotes">
+        <item>@string/quotes_1</item>
+        <item>@string/quotes_2</item>
+        <item>@string/quotes_3</item>
+        <item>@string/quotes_4</item>
+        <item>@string/quotes_5</item>
+        <item>@string/quotes_6</item>
+        <item>@string/quotes_7</item>
+        <item>@string/quotes_8</item>
+        <item>@string/quotes_9</item>
+        <item>@string/quotes_10</item>
+    </string-array>
+
+</resources>
