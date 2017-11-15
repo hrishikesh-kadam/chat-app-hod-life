@@ -1,6 +1,6 @@
 # Chat App made for HOD.life Interview
 
-[![APK](https://img.shields.io/badge/Download%20APK-v1.0-brightgreen.svg)]()
+[![APK](https://img.shields.io/badge/Download%20APK-v1.0-brightgreen.svg)](https://raw.githubusercontent.com/hrishikesh-kadam/chat-app-hod-life/master/Chat%20App%20HOD%20life.apk)
 
 ### Coding Assignment
 - Chat like user interface.
@@ -16,4 +16,4 @@ Send any message to get random quotes back
 
 ### Screenshot
 
-<img src="" width="240" height="493">
+<img src="https://github.com/hrishikesh-kadam/chat-app-hod-life/raw/master/screenshots/Screenshot%20(16-Nov-2017%204_53_46%20AM).jpg" width="240" height="493">
