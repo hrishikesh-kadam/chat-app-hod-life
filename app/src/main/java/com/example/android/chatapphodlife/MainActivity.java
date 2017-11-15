@@ -8,13 +8,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.android.chatapphodlife.data.ChatContract.ChatEntry;
@@ -72,14 +72,15 @@ public class MainActivity extends AppCompatActivity implements CustomEditText.on
     }
 
     @OnClick(R.id.buttonSend)
-    public void clickButtonSend(Button buttonSend) {
+    public void clickButtonSend() {
         Log.v(LOG_TAG, "-> clickButtonSend");
 
         String message = editTextMessage.getText().toString().trim();
-        editTextMessage.setText("");
 
-//        if (TextUtils.isEmpty(message))
-//            return;
+        if (TextUtils.isEmpty(message))
+            return;
+
+        editTextMessage.setText("");
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(ChatEntry.COLUMN_RECIPIENT, ChatEntry.RECIPIENT_SENDER);
