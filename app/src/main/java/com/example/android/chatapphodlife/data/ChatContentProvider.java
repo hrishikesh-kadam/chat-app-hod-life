@@ -83,7 +83,7 @@ public class ChatContentProvider extends ContentProvider {
 
         switch (uriMatcher.match(uri)) {
 
-            case CHAT_WITH_ID:
+            case CHAT_ALL:
                 long id = db.insert(ChatEntry.TABLE_NAME, null, values);
                 if (id > 0)
                     returnUri = ContentUris.withAppendedId(ChatEntry.CONTENT_URI, id);

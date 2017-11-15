@@ -23,5 +23,8 @@ public class ChatContract {
 
         public static final String COLUMN_RECEIPIENT = "receipient";
         public static final String COLUMN_MESSAGE = "message";
+
+        public static final String RECEIPIENT_SENDER = "sender";
+        public static final String RECEIPIENT_RECEIVER = "receiver";
     }
 }
