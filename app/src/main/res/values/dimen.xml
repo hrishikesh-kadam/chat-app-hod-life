@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_send_arrow">30dp</dimen>
+    <dimen name="button_send_arrow_left">5dp</dimen>
+    <dimen name="button_send_diameter">50dp</dimen>
+</resources>
