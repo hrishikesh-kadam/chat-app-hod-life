@@ -9,12 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.android.chatapphodlife.data.ChatContract.ChatEntry;
@@ -24,13 +24,14 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnTouch;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CustomEditText.onKeyImeChangeListener {
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @BindView(R.id.editTextMessage)
-    EditText editTextMessage;
+    CustomEditText editTextMessage;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Cursor cursor;
     private String[] quotes;
     private Random random = new Random();
+    private boolean isSoftKeyboardVisible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+        editTextMessage.setKeyImeChangeListener(this);
         quotes = getResources().getStringArray(R.array.quotes);
 
         initRecyclerView();
@@ -132,30 +135,78 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean clearEditTextMessageFocus() {
-        Log.v(LOG_TAG, "-> clearEditTextMessageFocus");
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.v(LOG_TAG, "-> onBackPressed");
 
-        // Check if no view has focus:
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-
-        editTextMessage.clearFocus();
-
-        return true;
+        isSoftKeyboardVisible = false;
     }
 
-    //@OnClick(R.id.editTextMessage)
-    public void clickEditTextMessage() {
-        Log.v(LOG_TAG, "-> clickEditTextMessage");
+    public void onKeyPreIme(int keyCode, KeyEvent event) {
 
-        recyclerView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                recyclerView.scrollToPosition(chatAdapter.getItemCount() - 1);
-            }
-        }, 100);
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Log.v(LOG_TAG, "-> onKeyPreIme");
+            isSoftKeyboardVisible = false;
+        }
+    }
+
+    @OnTouch(R.id.editTextMessage)
+    public boolean touchEditTextMessage() {
+        Log.v(LOG_TAG, "-> touchEditTextMessage");
+
+        isSoftKeyboardVisible = true;
+
+        return false;
+    }
+
+    public void hideSoftKeyboard() {
+        Log.v(LOG_TAG, "-> hideSoftKeyboard");
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager iMM = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            iMM.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.v(LOG_TAG, "-> onSaveInstanceState");
+
+        outState.putBoolean("isSoftKeyboardVisible", isSoftKeyboardVisible);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.v(LOG_TAG, "-> onRestoreInstanceState");
+
+        isSoftKeyboardVisible = savedInstanceState.getBoolean("isSoftKeyboardVisible");
+
+        if (!isSoftKeyboardVisible) {
+            editTextMessage.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    hideSoftKeyboard();
+                }
+            }, 200);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.v(LOG_TAG, "-> onResume");
+
+        if (!isSoftKeyboardVisible) {
+            editTextMessage.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    hideSoftKeyboard();
+                }
+            }, 100);
+        }
     }
 }
